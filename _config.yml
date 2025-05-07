@@ -19,12 +19,12 @@
 # in the templates via {{ site.myvariable }}.
 
 title: Koen van Rijn
-email: koenvanrijn@gmail.com
+email: koenvanrijn21@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Welcome to my portfolio website where I showcase my projects and skills.
 baseurl: "/portfolio" # the subpath of your site, e.g. /blog
-url: "https://koennie270993.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-github_username: koennie270993
+url: "https://koennie93.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+github_username: koennie93
 skills: Game Developer, TypeScript Developer, Web Developer
 tech_stacks: TypeScript, JavaScript, Node.js, PIXI.js, Git, C++, Unity3D, C#, Python, React, Angular
 meta_author: Koen van Rijn
@@ -60,7 +60,7 @@ footer:
 # Social media profiles
 social:
   - title: github
-    url: https://github.com/koennie270993
+    url: https://github.com/koennie93
 
 # Build settings
 # theme: freelancer-theme-jekyll
