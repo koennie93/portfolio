@@ -1,0 +1,27 @@
+<!-- Google Analytics -->
+{% if site.google_analytics %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  // Base configuration
+  gtag('config', '{{ site.google_analytics }}', {
+    'send_page_view': true,
+    'link_attribution': true,
+    'anonymize_ip': true
+  });
+  
+  // Enable enhanced e-commerce
+  gtag('config', '{{ site.google_analytics }}', {
+    'allow_enhanced_conversions': true
+  });
+  
+  // Set custom dimensions
+  gtag('set', {
+    'page_type': '{% if page.layout %}{{ page.layout }}{% else %}standard{% endif %}',
+    'content_group': '{% if page.categories.size > 0 %}{{ page.categories | first }}{% else %}general{% endif %}'
+  });
+</script>
+{% endif %} 

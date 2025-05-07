@@ -1,0 +1,241 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #2c3e50;
+  --secondary-color: #18bc9c;
+  --header-bg: #18bc9c;
+  --footer-bg: #2c3e50;
+  --box-shadow: rgba(0, 0, 0, 0.2);
+  --caption-bg: rgba(24, 188, 156, 0.9);
+  --card-bg: #fff;
+  --navbar-bg: #2c3e50;
+  --navbar-text: #fff;
+}
+
+body.dark-mode {
+  --bg-color: #1a1a1a;
+  --text-color: #f5f5f5;
+  --secondary-color: #18bc9c;
+  --header-bg: #121212;
+  --footer-bg: #121212;
+  --box-shadow: rgba(255, 255, 255, 0.1);
+  --caption-bg: rgba(24, 188, 156, 0.9);
+  --card-bg: #2a2a2a;
+  --navbar-bg: #1a1a1a;
+  --navbar-text: #fff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+header {
+  background-color: var(--header-bg) !important;
+}
+
+footer {
+  background-color: var(--footer-bg) !important;
+}
+
+.portfolio-item, .navbar-default {
+  background-color: var(--card-bg);
+}
+
+.caption {
+  background-color: var(--caption-bg);
+}
+
+.portfolio-item {
+  box-shadow: 0px 3px 10px var(--box-shadow);
+}
+
+/* Theme toggle switch styling */
+.theme-toggle-container {
+  display: inline-block !important;
+  padding: 0 !important;
+  height: auto !important;
+  margin-left: 20px !important;
+}
+
+.theme-toggle-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 20px;
+}
+
+@media(min-width:768px) {
+  .navbar-shrink .theme-toggle-wrapper {
+    margin-top: 10px;
+  }
+}
+
+/* Fix for toggle button in expanded navbar */
+@media (max-width: 767px) {
+  .theme-toggle-container {
+    display: block !important;
+    text-align: left;
+    padding: 10px 15px !important;
+    margin-left: 0 !important;
+  }
+  
+  .theme-toggle-wrapper {
+    margin-top: 0;
+  }
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 26px;
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.icon-sun, .icon-moon {
+  position: absolute;
+  top: 5px;
+  font-size: 14px;
+  transition: opacity 0.3s ease;
+}
+
+.icon-sun {
+  left: 8px;
+  color: #f39c12;
+  opacity: 0;
+}
+
+.icon-moon {
+  right: 8px;
+  color: #f1c40f;
+  opacity: 1;
+}
+
+input:checked + .slider {
+  background-color: var(--secondary-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(32px);
+}
+
+input:checked + .slider .icon-sun {
+  opacity: 1;
+}
+
+input:checked + .slider .icon-moon {
+  opacity: 0;
+}
+
+/* Adjust navbar text color */
+.dark-mode .navbar-default .navbar-nav > li > a,
+.dark-mode .navbar-default .navbar-brand {
+  color: var(--text-color);
+}
+
+/* Fix for navbar text in light mode */
+.navbar-default {
+  background-color: var(--navbar-bg);
+}
+
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-brand {
+  color: var(--navbar-text) !important;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: var(--navbar-text);
+}
+
+/* For the active/hover states in navbar */
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: var(--secondary-color) !important;
+}
+
+/* Portfolio caption colors */
+.dark-mode .portfolio-caption h4, 
+.dark-mode .portfolio-caption p {
+  color: var(--text-color);
+}
+
+/* Fix text-muted class in dark mode */
+.dark-mode .text-muted {
+  color: #a9a9a9 !important;
+}
+
+.dark-mode .modal-body .text-muted {
+  color: #b4b4b4 !important;
+}
+
+.dark-mode .modal-body .text-muted strong {
+  color: #ffffff !important;
+}
+
+/* Star styling for dark mode */
+body.dark-mode hr.star-primary:after {
+  background-color: var(--bg-color);
+}
+
+body.dark-mode hr.star-light:after {
+  background-color: var(--header-bg);
+}
+
+body.dark-mode section.success {
+  background-color: var(--header-bg);
+}
+
+/* Modal styling for dark mode */
+.dark-mode .portfolio-modal .modal-content {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+.dark-mode .portfolio-modal .modal-content h2 {
+  color: var(--text-color);
+}
+
+.dark-mode .portfolio-modal .close-modal .lr,
+.dark-mode .portfolio-modal .close-modal .lr .rl {
+  background-color: var(--text-color);
+}
+
+.dark-mode .btn-default {
+  background-color: var(--navbar-bg);
+  color: var(--navbar-text);
+  border-color: var(--navbar-bg);
+} 

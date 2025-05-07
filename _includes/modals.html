@@ -1,0 +1,92 @@
+<!-- Portfolio Modals -->
+{% for post in site.posts %}
+<div class="portfolio-modal modal fade" id="portfolioModal-{{ post.modal-id }}" tabindex="-1" role="dialog"
+  aria-hidden="true">
+  <div class="modal-content">
+    <div class="close-modal" data-dismiss="modal">
+      <div class="lr">
+        <div class="rl">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="modal-body">
+            <h2>{{ post.title }}</h2>
+            <hr class="star-primary">
+            
+            {% if post.project-date %}
+            <p class="text-muted">Date: <strong>{{ post.project-date }}</strong></p>
+            {% endif %}
+            
+            {% if post.tech_stack %}
+            <p class="text-muted">Tech Stack: <strong>{{ post.tech_stack }}</strong></p>
+            {% endif %}
+            
+            {% if post.img_folder %}
+            <img src="img/{{ post.img_folder }}/{{ post.img }}" class="img-responsive img-centered" alt="{{ post.alt }}">
+            {% else %}
+            <img src="img/portfolio/{{ post.img }}" class="img-responsive img-centered" alt="{{ post.alt }}">
+            {% endif %}
+            
+            {% if post.description %}
+            <p>{{ post.description }}</p>
+            {% endif %}
+            
+            {% if post.video or post.youtube_id %}
+            <div class="video-container">
+              {% if post.youtube_id %}
+              <!-- YouTube embed for reliable playback -->
+              <div class="iframe-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
+                <iframe 
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                  src="https://www.youtube.com/embed/{{ post.youtube_id }}" 
+                  frameborder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+              {% else %}
+              <!-- Simple video player (optimized for reliability) -->
+              <div style="max-width: 640px; margin: 0 auto; text-align: center;">
+                <video 
+                  controls
+                  preload="metadata"
+                  poster="{{ site.baseurl }}/img/{{ post.img_folder }}/{{ post.img }}"
+                  style="width: 100%; height: auto; max-height: 100%;">
+                  <source src="{{ site.baseurl }}/videos/{{ post.video }}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <div class="text-center" style="margin-top: 10px;">
+                  <a href="{{ site.baseurl }}/videos/{{ post.video }}" download class="btn btn-sm btn-primary">
+                    <i class="fa fa-download"></i> Download Video
+                  </a>
+                </div>
+              </div>
+              {% endif %}
+            </div>
+            <br>
+            {% endif %}
+            
+            <ul class="list-inline item-details">
+              {% if post.client %}
+              <li>Client:
+                <strong>{{ post.client }}</strong>
+              </li>
+              {% endif %}
+              {% if post.category %}
+              <li>Service:
+                <strong>{{ post.category }}</strong>
+              </li>
+              {% endif %}
+            </ul>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>
+              Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %} 

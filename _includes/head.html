@@ -1,0 +1,52 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ site.title }}</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="{{ site.description }}">
+  <meta name="keywords" content="{{ site.keywords }}" />
+  {% if site.meta_author %}
+  <meta name="author" content="{{ site.meta_author }}">{% endif %}
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="feed.xml">
+
+  <!-- Custom CSS & Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+  <link rel="stylesheet" href="{{ "/style.css" | prepend: site.baseurl }}">
+  
+  <!-- Dark Mode Theme CSS -->
+  <link rel="stylesheet" href="{{ "/css/dark-mode.css" | prepend: site.baseurl }}">
+
+  <!-- Google verification -->
+  {% if site.google_verify %}
+  <meta name="google-site-verification" content="{{ site.google_verify }}">{% endif %}
+
+  <!-- Bing Verification -->
+  {% if site.bing_verify %}
+  <meta name="msvalidate.01" content="{{ site.bing_verify }}">{% endif %}
+
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="{{ "/css/font-awesome/css/all.min.css" | prepend: site.baseurl }}">
+  <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+  {% include google-analytics.html %}
+  <!-- Preload optimized images for faster loading -->
+<link rel="preload" href="img/fove/fove-optimized.png" as="image">
+<link rel="preload" href="img/fmv/fmv-optimized.jpg" as="image">
+<link rel="preload" href="img/vr-csi/vr-csi-optimized.png" as="image">
+<link rel="preload" href="img/trinity/trinity-optimized.png" as="image">
+<link rel="preload" href="img/pinata/pinata-optimized.png" as="image">
+<link rel="preload" href="img/storm-skaters/stormskater1s-optimized.jpg" as="image">
+<link rel="preload" href="img/battleship/08-optimized.jpg" as="image">
+<link rel="preload" href="img/battleship/06-optimized.jpg" as="image">
+<link rel="preload" href="img/battleship/s_square_768-optimized.jpg" as="image">
+<link rel="preload" href="img/battleship/05-optimized.jpg" as="image">
+
+</head> 

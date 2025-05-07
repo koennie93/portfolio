@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Video Player</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000;
+        }
+        
+        .video-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        video {
+            max-width: 100%;
+            max-height: 80%;
+            display: block;
+        }
+        
+        .error-message {
+            color: white;
+            text-align: center;
+            display: none;
+            margin: 20px;
+        }
+
+        .download-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 16px;
+            background-color: #18bc9c;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .fallback-image {
+            max-width: 100%;
+            max-height: 80%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-wrapper">
+        <video id="videoPlayer" controls preload="metadata">
+            <!-- Multiple sources for maximum compatibility -->
+            <source id="webmSource" src="" type="video/webm">
+            <source id="mp4Source" src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <!-- Fallback image in case video doesn't play -->
+        <img id="fallbackImage" class="fallback-image" alt="Video Thumbnail">
+        
+        <div id="errorMessage" class="error-message">
+            <p>The video could not be played. Please try downloading it instead.</p>
+            <a id="downloadLink" href="" download class="download-button">Download Video</a>
+        </div>
+        <a id="downloadButton" href="" download class="download-button" style="display: none;">Download Video</a>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoFile = urlParams.get('video') || 'fmv-video';
+        const imgPath = urlParams.get('img') || '/img/fmv/fmv-optimized.jpg';
+        
+        // Set video sources - try both WebM and MP4
+        const webmSource = document.getElementById('webmSource');
+        const mp4Source = document.getElementById('mp4Source');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const errorMessage = document.getElementById('errorMessage');
+        const downloadLink = document.getElementById('downloadLink');
+        const downloadButton = document.getElementById('downloadButton');
+        const fallbackImage = document.getElementById('fallbackImage');
+        
+        // Set both formats
+        webmSource.src = videoFile + '.webm';
+        mp4Source.src = videoFile + '.mp4';
+        
+        // Set download links - prefer WebM if available
+        downloadLink.href = videoFile + '.webm';
+        downloadButton.href = videoFile + '.webm';
+        
+        // Set fallback image
+        fallbackImage.src = imgPath;
+        
+        videoPlayer.load();
+        
+        // Show download button after a short delay
+        setTimeout(function() {
+            downloadButton.style.display = 'inline-block';
+        }, 2000);
+        
+        // Set a timeout to check if video is playing
+        setTimeout(function() {
+            if (videoPlayer.paused || videoPlayer.ended) {
+                // Video didn't auto-start, try showing the image
+                videoPlayer.style.display = 'none';
+                fallbackImage.style.display = 'block';
+            }
+        }, 3000);
+        
+        // Handle video errors
+        videoPlayer.addEventListener('error', function(e) {
+            console.error('Video error:', e);
+            videoPlayer.style.display = 'none';
+            fallbackImage.style.display = 'block';
+            errorMessage.style.display = 'block';
+        });
+        
+        // Log video events for debugging
+        videoPlayer.addEventListener('canplay', function() {
+            console.log('Video can play');
+        });
+        
+        videoPlayer.addEventListener('playing', function() {
+            console.log('Video is playing');
+            // Hide the fallback image if video starts playing
+            fallbackImage.style.display = 'none';
+        });
+        
+        // Add click on image to download
+        fallbackImage.addEventListener('click', function() {
+            window.location.href = downloadButton.href;
+        });
+    </script>
+</body>
+</html> 

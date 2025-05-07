@@ -1,0 +1,13 @@
+---
+layout: default
+modal-id: 4
+date: 2019-07-31
+img: vr-csi-optimized.png
+img_folder: vr-csi
+alt: VR CSI - Crime Scene Investigation
+project-date: July 2019
+tech_stack: Unity3D, C#, HTC Vive
+title: VR CSI
+description: VR CSI was a joined collaboration with the Forensic Department of the Amsterdam University of Applied Sciences and the Game Development Education of the Amsterdam University of Applied Sciences. The crime scene serves as an additional opportunity for conducting crime scene investigation within the education program, alongside the physical simulations already offered. Virtual Reality provides an extra possibility for students to analyze complex trace evidence, where analysis must take place at both source and activity levels. Additionally, standard procedures at a crime scene will also be part of the Virtual crime scene.
+youtube_id: q_1KomRi3NI
+--- 

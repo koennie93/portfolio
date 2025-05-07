@@ -1,0 +1,40 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio project",
+  "main": "dist/index.js",
+  "scripts": {
+    "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build:webpack:dev": "cross-env NODE_ENV=development webpack --config webpack.config.js",
+    "serve": "npm run build:webpack:dev && bundle exec jekyll serve",
+    "serve:prod": "npm run build:webpack && bundle exec jekyll serve",
+    "watch:ts": "cross-env NODE_ENV=development webpack --watch --config webpack.config.js",
+    "watch:jekyll": "bundle exec jekyll serve",
+    "watch": "npm-run-all --parallel watch:*",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:gh-pages": "npm run build:webpack && bundle exec jekyll build",
+    "build:production": "npm run build:webpack && bundle exec jekyll build",
+    "optimize-images": "node scripts/optimizeImages.js",
+    "check-bundle": "node scripts/check-bundle-production.js"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.32",
+    "@types/node": "^20.11.18",
+    "cross-env": "^7.0.3",
+    "javascript-obfuscator": "^4.1.1",
+    "npm-run-all": "^4.1.5",
+    "sharp": "^0.34.1",
+    "terser-webpack-plugin": "^5.3.14",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3",
+    "webpack": "^5.99.5",
+    "webpack-cli": "^6.0.1",
+    "webpack-obfuscator": "^3.5.1"
+  },
+  "dependencies": {
+    "bootstrap-validator": "^0.11.9",
+    "jquery": "^3.7.1",
+    "jquery.easing": "^1.4.1"
+  }
+}

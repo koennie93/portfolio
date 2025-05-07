@@ -1,0 +1,96 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+title: Koen van Rijn
+email: koenvanrijn@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Welcome to my portfolio website where I showcase my projects and skills.
+baseurl: "/portfolio" # the subpath of your site, e.g. /blog
+url: "https://koennie270993.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+github_username: koennie270993
+skills: Game Developer, TypeScript Developer, Web Developer
+tech_stacks: TypeScript, JavaScript, Node.js, PIXI.js, Git, C++, Unity3D, C#, Python, React, Angular
+meta_author: Koen van Rijn
+keywords: portfolio, web development, programming, game development
+future: true # allow posts with future dates
+
+# Google webmaster tools
+google_verify:
+
+# Google Analytics
+google_analytics: G-610NQETBRR
+
+# Contact form:
+# - static : use static contact form that works without server side code
+# - disqus : replace dynamic contact form by disqus thread
+# - comment the line below if you want to stick with the default PHP contact form
+contact: static
+
+# Freelancer theme settings
+color:
+  primary: 18bc9c #80B3FF
+  primary-rgb: "24,288,156" #"128,179,255"
+  secondary: 2c3e50 #FD6E8A
+  secondary-dark: 233140 #A2122F
+
+# Footer settings
+footer:
+  copyright: Your Name
+  location: Location
+  social: Around the Web
+  credits: About
+
+# Social media profiles
+social:
+  - title: github
+    url: https://github.com/koennie270993
+
+# Build settings
+# theme: freelancer-theme-jekyll
+plugins:
+  - jekyll-feed
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - temp-freelancer/
+  - src/
+  - dist/
+  - tsconfig.json
+  - webpack.config.js
+  - package.json
+  - package-lock.json
+ 
