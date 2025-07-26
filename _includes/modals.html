@@ -24,11 +24,107 @@
             <p class="text-muted">Tech Stack: <strong>{{ post.tech_stack }}</strong></p>
             {% endif %}
             
-            {% if post.img_folder %}
-            <img src="img/{{ post.img_folder }}/{{ post.img }}" class="img-responsive img-centered" alt="{{ post.alt }}">
-            {% else %}
-            <img src="img/portfolio/{{ post.img }}" class="img-responsive img-centered" alt="{{ post.alt }}">
-            {% endif %}
+
+            {% if post.images and post.images.size > 1 %}
+                <!-- Compact horizontal scrolling gallery -->
+                <div class="compact-gallery" style="margin-bottom: 30px;">
+                  <div class="gallery-container" style="position: relative; width: 400px; height: 180px; margin: 0 auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden;">
+                    {% for image in post.images %}
+                      <div class="gallery-slide" id="slide-{{ post.modal-id }}-{{ forloop.index0 }}" 
+                           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; {% if forloop.first %}display: block;{% else %}display: none;{% endif %} transition: opacity 0.3s ease-in-out;">
+                        {% if post.img_folder %}
+                          <img src="img/{{ post.img_folder }}/{{ image }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="{{ post.alt }} - Image {{ forloop.index }}" loading="lazy">
+                        {% else %}
+                          <img src="img/portfolio/{{ image }}" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="{{ post.alt }} - Image {{ forloop.index }}" loading="lazy">
+                        {% endif %}
+                        <div class="image-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 15px; color: white;">
+                          <div style="font-size: 12px; opacity: 0.9;">{{ forloop.index }} / {{ post.images.size }}</div>
+                        </div>
+                      </div>
+                    {% endfor %}
+                    
+                    <!-- Navigation arrows -->
+                    <button class="gallery-nav gallery-prev" data-gallery="gallery-{{ post.modal-id }}" data-direction="-1" 
+                            style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); 
+                                   background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; 
+                                   width: 35px; height: 35px; cursor: pointer; font-size: 16px; z-index: 10;
+                                   display: flex; align-items: center; justify-content: center;
+                                   transition: background 0.2s ease;">‹</button>
+                    
+                    <button class="gallery-nav gallery-next" data-gallery="gallery-{{ post.modal-id }}" data-direction="1"
+                            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); 
+                                   background: rgba(0,0,0,0.6); color: white; border: none; border-radius: 50%; 
+                                   width: 35px; height: 35px; cursor: pointer; font-size: 16px; z-index: 10;
+                                   display: flex; align-items: center; justify-content: center;
+                                   transition: background 0.2s ease;">›</button>
+                    
+                    <!-- Dots indicator -->
+                    <div class="gallery-dots" style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px;">
+                      {% for image in post.images %}
+                        <span class="gallery-dot" data-gallery="gallery-{{ post.modal-id }}" data-slide="{{ forloop.index }}" 
+                              style="width: 8px; height: 8px; background: rgba(255,255,255,0.5); border-radius: 50%; 
+                                     cursor: pointer; transition: all 0.2s ease;" 
+                              data-index="{{ forloop.index0 }}"></span>
+                      {% endfor %}
+                    </div>
+                  </div>
+                  
+                  <p style="text-align: center; color: #666; font-size: 13px; margin-top: 10px; font-style: italic;">
+                    Use arrows or dots to navigate • Click image to expand
+                  </p>
+                </div>
+              {% elsif post.images and post.images.size == 1 %}
+                <!-- Single image from images array -->
+                {% assign single_img = post.images.first %}
+              {% elsif post.img %}
+                <!-- Single image from img field -->
+                {% assign single_img = post.img %}
+              {% endif %}
+              
+              {% if single_img %}
+                <div class="single-image" style="text-align: center; margin-bottom: 30px;">
+                  {% if post.img_folder %}
+                    <img src="img/{{ post.img_folder }}/{{ single_img }}" class="img-responsive" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer;" alt="{{ post.alt }}" 
+                         data-fullscreen-single="true" 
+                         data-fullscreen-src="img/{{ post.img_folder }}/{{ single_img }}">
+                  {% else %}
+                    <img src="img/portfolio/{{ single_img }}" class="img-responsive" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); cursor: pointer;" alt="{{ post.alt }}"
+                         data-fullscreen-single="true"
+                         data-fullscreen-src="img/portfolio/{{ single_img }}">
+                  {% endif %}
+                </div>
+              {% endif %}
+
+            <!-- Gallery Styles -->
+            <style>
+              .gallery-nav:hover {
+                background: rgba(0,0,0,0.8) !important;
+              }
+              .gallery-dot:hover {
+                transform: scale(1.3) !important;
+                background: rgba(255,255,255,0.8) !important;
+              }
+            </style>
+
+            <!-- Fullscreen Modal -->
+            <div id="fullscreen-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95);">
+              <div style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                <!-- Close button -->
+                <button id="fullscreen-close" style="position: absolute; top: 20px; right: 30px; background: none; border: none; color: white; font-size: 40px; cursor: pointer; z-index: 10000; padding: 10px;">&times;</button>
+                
+                <!-- Image container -->
+                <div id="fullscreen-content" style="max-width: 90%; max-height: 90%; position: relative;">
+                  <img id="fullscreen-image" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px;">
+                  
+                  <!-- Navigation for galleries -->
+                  <button id="fullscreen-prev" style="position: absolute; left: -60px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 24px; display: none;">‹</button>
+                  <button id="fullscreen-next" style="position: absolute; right: -60px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 24px; display: none;">›</button>
+                </div>
+                
+                <!-- Image counter -->
+                <div id="fullscreen-counter" style="position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); color: white; background: rgba(0,0,0,0.5); padding: 8px 16px; border-radius: 20px; font-size: 14px; display: none;"></div>
+              </div>
+            </div>
             
             {% if post.description %}
             <p>{{ post.description }}</p>

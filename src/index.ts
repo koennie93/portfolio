@@ -14,4 +14,5 @@ import './analyticsEnhanced';
 import './videoPlayer';
 import './classie';
 import './cbpAnimatedHeader';
+import './imageGallery';
 // Bootstrap and jqBootstrapValidation will be loaded from CDN

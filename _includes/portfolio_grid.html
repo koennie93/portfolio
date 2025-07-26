@@ -16,10 +16,11 @@
               <i class="fa fa-search-plus fa-3x"></i>
             </div>
           </div>
+          {% assign preview_img = post.img | default: post.images.first %}
           {% if post.img_folder %}
-          <img src="img/{{ post.img_folder }}/{{ post.img }}" class="img-responsive" alt="{{ post.alt }}">
+          <img src="img/{{ post.img_folder }}/{{ preview_img }}" class="img-responsive" alt="{{ post.alt }}">
           {% else %}
-          <img src="img/portfolio/{{ post.img }}" class="img-responsive" alt="{{ post.alt }}">
+          <img src="img/portfolio/{{ preview_img }}" class="img-responsive" alt="{{ post.alt }}">
           {% endif %}
         </a>
         <div class="portfolio-caption">

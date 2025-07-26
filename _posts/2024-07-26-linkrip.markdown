@@ -1,0 +1,134 @@
+---
+layout: default
+modal-id: 4
+date: 2024-07-26
+images:
+  - 1.png
+  - 2.png
+  - 3.png
+  - 4.png
+  - 5.png
+  - 6.png
+  - 7.png
+img_folder: linkrip
+alt: LinkRip - Download Videos Easily
+project-date: July 2024
+tech_stack: React, TypeScript, FastAPI, Python, PostgreSQL, Redis, Docker, Nginx
+title: LinkRip
+description: |
+  <div class="text-left" style="max-width: 800px; margin: 0 auto;">
+    
+    <p class="lead" style="font-size: 1.2em; margin-bottom: 30px; color: #18bc9c;">
+      <strong>LinkRip is a high-performance, secure video downloading web application that allows users to download videos and extract audio from 1000+ supported platforms including YouTube, Vimeo, Dailymotion, Twitch, and Reddit. The application provides real-time progress tracking, multiple format support, and a modern, responsive user interface. The was a fully solo developed project</strong>
+    </p>
+    
+    <div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 8px; padding: 20px; margin-bottom: 30px; border-left: 4px solid #f39c12;">
+      <p style="margin: 0; color: #856404; font-size: 1em; line-height: 1.5;">
+        <strong>⚠️ Disclaimer:</strong> The app was available at <a href="https://linkrip.app" style="color: #d63384;">https://linkrip.app</a>, but due to legal risks the app has been taken down.
+      </p>
+    </div>
+    
+    <div style="margin-bottom: 30px;">
+      <h3 style="color: #2c3e50; font-size: 1.5em; margin-bottom: 15px; border-bottom: 2px solid #18bc9c; padding-bottom: 5px;">🎯 Key Features</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 15px;">
+        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #18bc9c;">
+          <strong style="color: #2c3e50; font-size: 1.1em;">Multi-Platform Support</strong><br>
+          <span style="color: #666;">1000+ sites via yt-dlp integration</span>
+        </div>
+        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #18bc9c;">
+          <strong style="color: #2c3e50; font-size: 1.1em;">Real-Time Progress</strong><br>
+          <span style="color: #666;">Live updates via WebSockets</span>
+        </div>
+        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #18bc9c;">
+          <strong style="color: #2c3e50; font-size: 1.1em;">Multiple Formats</strong><br>
+          <span style="color: #666;">MP4, WebM, MP3 & more</span>
+        </div>
+        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #18bc9c;">
+          <strong style="color: #2c3e50; font-size: 1.1em;">Security-First</strong><br>
+          <span style="color: #666;">Rate limiting & validation</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 30px;">
+      <h3 style="color: #2c3e50; font-size: 1.5em; margin-bottom: 15px; border-bottom: 2px solid #18bc9c; padding-bottom: 5px;">⚡ Technical Stack</h3>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
+        <div>
+          <h4 style="color: #18bc9c; font-size: 1.1em; margin-bottom: 10px;">Frontend</h4>
+          <ul style="list-style: none; padding-left: 0; line-height: 1.6;">
+            <li>• React 18 + TypeScript</li>
+            <li>• Vite + Tailwind CSS</li>
+            <li>• Zustand + React Router</li>
+            <li>• WebSocket integration</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 style="color: #18bc9c; font-size: 1.1em; margin-bottom: 10px;">Backend</h4>
+          <ul style="list-style: none; padding-left: 0; line-height: 1.6;">
+            <li>• FastAPI + Python 3.11</li>
+            <li>• PostgreSQL + SQLAlchemy</li>
+            <li>• Redis + Celery workers</li>
+            <li>• Prometheus monitoring</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 style="color: #18bc9c; font-size: 1.1em; margin-bottom: 10px;">Infrastructure</h4>
+          <ul style="list-style: none; padding-left: 0; line-height: 1.6;">
+            <li>• Docker + Docker Compose</li>
+            <li>• Nginx reverse proxy</li>
+            <li>• Grafana dashboards</li>
+            <li>• GitLab CI/CD</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 30px;">
+      <h3 style="color: #2c3e50; font-size: 1.5em; margin-bottom: 15px; border-bottom: 2px solid #18bc9c; padding-bottom: 5px;">🏗️ Architecture Highlights</h3>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 15px;">
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px;">
+          <h4 style="margin-bottom: 10px; color: white; font-size: 1.1em;">🔄 Scalable Microservices</h4>
+          <p style="margin: 0; font-size: 0.9em; line-height: 1.5;">Clean separation of concerns with horizontal scaling capability and resource-optimized containers.</p>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 20px; border-radius: 10px;">
+          <h4 style="margin-bottom: 10px; color: white; font-size: 1.1em;">⚡ Performance Optimization</h4>
+          <p style="margin: 0; font-size: 0.9em; line-height: 1.5;">Background processing, Redis caching, database optimization, and code splitting.</p>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 20px; border-radius: 10px;">
+          <h4 style="margin-bottom: 10px; color: white; font-size: 1.1em;">🔒 Security by Design</h4>
+          <p style="margin: 0; font-size: 0.9em; line-height: 1.5;">Comprehensive validation, rate limiting, security headers, and container security.</p>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: white; padding: 20px; border-radius: 10px;">
+          <h4 style="margin-bottom: 10px; color: white; font-size: 1.1em;">📊 Production Ready</h4>
+          <p style="margin: 0; font-size: 0.9em; line-height: 1.5;">Complete monitoring stack, SSL support, automated backups, and comprehensive logging.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border: 1px solid #dee2e6;">
+      <h3 style="color: #2c3e50; font-size: 1.5em; margin-bottom: 15px; text-align: center;">🎓 Technical Proficiency Demonstrated</h3>
+      <div style="text-align: center; color: #666; line-height: 1.8;">
+        <span style="background: #18bc9c; color: white; padding: 5px 10px; border-radius: 15px; margin: 3px; display: inline-block; font-size: 0.9em;">Modern Web Development</span>
+        <span style="background: #18bc9c; color: white; padding: 5px 10px; border-radius: 15px; margin: 3px; display: inline-block; font-size: 0.9em;">Microservices Architecture</span>
+        <span style="background: #18bc9c; color: white; padding: 5px 10px; border-radius: 15px; margin: 3px; display: inline-block; font-size: 0.9em;">Containerization</span>
+        <span style="background: #18bc9c; color: white; padding: 5px 10px; border-radius: 15px; margin: 3px; display: inline-block; font-size: 0.9em;">Production Deployment</span>
+        <span style="background: #18bc9c; color: white; padding: 5px 10px; border-radius: 15px; margin: 3px; display: inline-block; font-size: 0.9em;">Performance Optimization</span>
+        <span style="background: #18bc9c; color: white; padding: 5px 10px; border-radius: 15px; margin: 3px; display: inline-block; font-size: 0.9em;">Security Implementation</span>
+      </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 20px; padding: 15px; background: #e9ecef; border-radius: 8px;">
+      <p style="margin: 0; color: #6c757d; font-size: 0.9em;">
+        💻 <strong>Source Code:</strong> A copy of the GitLab repository can be found at <a href="https://github.com/koennie93/linkrip-copy" target="_blank" style="color: #18bc9c; text-decoration: none;">github.com/koennie93/linkrip-copy</a>
+      </p>
+    </div>
+    
+  </div>
+--- 

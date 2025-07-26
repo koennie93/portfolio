@@ -11,6 +11,7 @@ import './contactMe';
 // import './contact_me_static';
 import './analyticsEnhanced';
 import './videoPlayer';
+import './imageGallery';
 
 // Make jQuery available globally
 (window as any).$ = $;
